@@ -1,5 +1,5 @@
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Application, CommandHandler
 
 # توكن البوت
 bot_token = '7789926752:AAHhETbgMZuweYc7N2ZmmCrAIhX4WJGAtjk'
@@ -26,8 +26,7 @@ def start(update, context):
     )
 
 # إعداد البوت
-updater = Updater(bot_token)  # تأكد من استخدام الطريقة الصحيحة للنسخة القديمة
-dispatcher = updater.dispatcher
+app = Application.builder().token(bot_token).build()
 
 # إضافة الكوماند handler
 dispatcher.add_handler(CommandHandler('start', start))
